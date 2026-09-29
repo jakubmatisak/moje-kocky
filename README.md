@@ -9,9 +9,9 @@ Je to jeden statický súbor HTML bez frameworku a bez zostavovania:
 ```
 index.html                 obsah, slovensky aj anglicky (.sk / .en)
 assets/style.css           farby a rozloženie ako v appke, tmavý režim podľa systému
-assets/site.js             prepínač jazyka (?lang=en), nič neukladá
+assets/site.js             prepínač jazyka (?lang=en) a zväčšenie galérie, nič neukladá
 assets/fonts/              Roboto (OFL-1.1, pozri OFL.txt), uložené tu, nie z Google Fonts
-assets/img/                snímky z ukážkovej zbierky
+assets/img/                snímky desktopu s ukážkovou zbierkou (vymyslené ručné ceny), *-male = náhľady
 third-party-notices.txt    licencie knižníc v inštalátore (z packaging/notices.py desktopu)
 ```
 

@@ -53,4 +53,48 @@
   }
 
   apply(initial(), false);
+
+  // Galéria: náhľad otvorí veľkú snímku v dialógu, šípky a klávesy listujú.
+  // Bez skriptu odkaz otvorí obrázok priamo.
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll('.gallery .thumb'));
+  var box = document.querySelector('.lightbox');
+  if (box && typeof box.showModal === 'function' && thumbs.length) {
+    var big = box.querySelector('img');
+    var caption = box.querySelector('figcaption');
+    var current = 0;
+
+    var show = function (index) {
+      current = (index + thumbs.length) % thumbs.length;
+      var thumb = thumbs[current];
+      var lang = document.documentElement.lang === 'en' ? 'en' : 'sk';
+      var parts = thumb.querySelectorAll('.cap .' + lang);
+      big.src = thumb.dataset.full;
+      big.alt = thumb.querySelector('img').alt;
+      caption.innerHTML = '';
+      var title = document.createElement('strong');
+      title.textContent = parts[0] ? parts[0].textContent : '';
+      caption.appendChild(title);
+      caption.appendChild(document.createTextNode(parts[1] ? parts[1].textContent : ''));
+    };
+
+    thumbs.forEach(function (thumb, index) {
+      thumb.addEventListener('click', function (event) {
+        event.preventDefault();
+        show(index);
+        box.showModal();
+      });
+    });
+    box.querySelector('.lb-prev').addEventListener('click', function () { show(current - 1); });
+    box.querySelector('.lb-next').addEventListener('click', function () { show(current + 1); });
+    box.querySelector('.lb-close').addEventListener('click', function () { box.close(); });
+    box.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft') show(current - 1);
+      if (event.key === 'ArrowRight') show(current + 1);
+    });
+    // Klik mimo obrázka (na pozadie) dialóg zavrie.
+    box.addEventListener('click', function (event) {
+      if (event.target === box) box.close();
+    });
+    box.addEventListener('close', function () { thumbs[current].focus(); });
+  }
 })();

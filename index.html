@@ -28,16 +28,17 @@ Moje kocky
 </a>
 <nav class="nav" aria-label="Sekcie">
 <a href="#funkcie"><span class="sk">Čo vie</span><span class="en">Features</span></a>
+<a href="#galeria"><span class="sk">Galéria</span><span class="en">Gallery</span></a>
 <a href="#instalacia"><span class="sk">Inštalácia</span><span class="en">Install</span></a>
 <a href="#sluzby"><span class="sk">Služby a kľúče</span><span class="en">Services</span></a>
 <a href="#licencie"><span class="sk">Licencie</span><span class="en">Licences</span></a>
-<a href="#otazky"><span class="sk">Otázky</span><span class="en">FAQ</span></a>
+<a href="#kod"><span class="sk">Kód</span><span class="en">Code</span></a>
 </nav>
 <div class="lang" role="group" aria-label="Jazyk / Language">
 <button type="button" data-lang="sk" aria-pressed="true">SK</button>
 <button type="button" data-lang="en" aria-pressed="false">EN</button>
 </div>
-<a class="btn-outline" href="https://github.com/jakubmatisak/moje-kocky-desktop">
+<a class="btn-outline" href="#kod">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/></svg>
 <span class="sk">Zdrojový kód</span><span class="en">Source code</span>
 </a>
@@ -45,11 +46,12 @@ Moje kocky
 <summary aria-label="Ponuka / Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></summary>
 <div class="menu-panel">
 <a href="#funkcie"><span class="sk">Čo vie</span><span class="en">Features</span></a>
+<a href="#galeria"><span class="sk">Galéria</span><span class="en">Gallery</span></a>
 <a href="#instalacia"><span class="sk">Inštalácia</span><span class="en">Install</span></a>
 <a href="#sluzby"><span class="sk">Služby a kľúče</span><span class="en">Services</span></a>
 <a href="#licencie"><span class="sk">Licencie</span><span class="en">Licences</span></a>
 <a href="#otazky"><span class="sk">Otázky</span><span class="en">FAQ</span></a>
-<a href="https://github.com/jakubmatisak/moje-kocky-desktop"><span class="sk">Zdrojový kód</span><span class="en">Source code</span></a>
+<a href="#kod"><span class="sk">Zdrojový kód a web</span><span class="en">Source and web version</span></a>
 </div>
 </details>
 </div>
@@ -139,18 +141,62 @@ Moje kocky
 </div>
 </section>
 
-<section class="section">
-<div class="wrap showcase">
-<figure class="shot">
-<img src="assets/img/zbierka.webp" width="1440" height="900" loading="lazy" alt="Zbierka: karty setov s kúpnou cenou, hodnotou a ziskom, vpravo panel filtrov" data-alt-en="Collection: set cards with purchase price, value and profit, filter panel on the right">
-</figure>
-<div class="showcase-text">
-<h2 class="small"><span class="sk">Každý set na jednom mieste</span><span class="en">Every set in one place</span></h2>
-<p><span class="sk">Karty alebo tabuľka, zoskupené podľa setu či série. Pri každom kuse kúpna cena, dnešná hodnota a zisk v percentách.</span><span class="en">Cards or a table, grouped by set or series. For every item the purchase price, today’s value and profit in percent.</span></p>
-<p class="fine"><span class="sk">Snímky sú z ukážkovej zbierky s ručne zadanými cenami.</span><span class="en">Screenshots show a sample collection with manually entered prices.</span></p>
+<section class="section" id="galeria">
+<div class="wrap">
+<div class="section-head">
+<h2><span class="sk">Ako to vyzerá</span><span class="en">What it looks like</span></h2>
+<p><span class="sk">Klikni na obrázok a zväčší sa; šípkami listuješ. Snímky sú z desktopovej verzie s ukážkovou zbierkou a vymyslenými, ručne zadanými cenami. Ukážkový účet nemá kľúče Brickset ani BrickEconomy, preto miestami vidieť tip, čo by služba doplnila.</span><span class="en">Click a picture to enlarge it; use the arrows to browse. Screenshots come from the desktop version with a sample collection and made-up, manually entered prices. The sample account has no Brickset or BrickEconomy key, so you can see hints of what those services would add.</span></p>
 </div>
+<ul class="gallery">
+<li class="wide"><a class="thumb" href="assets/img/zbierka.webp" data-full="assets/img/zbierka.webp">
+<img src="assets/img/zbierka.webp" width="1440" height="900" loading="lazy" alt="Zbierka ako karty: Pri každom sete kúpna cena, dnešná hodnota a zisk; filtre vpravo." data-alt-en="Collection as cards: Purchase price, today’s value and profit for every set; filters on the right.">
+<span class="cap"><strong><span class="sk">Zbierka ako karty</span><span class="en">Collection as cards</span></strong><span class="sk">Pri každom sete kúpna cena, dnešná hodnota a zisk; filtre vpravo.</span><span class="en">Purchase price, today’s value and profit for every set; filters on the right.</span></span>
+</a></li>
+<li><a class="thumb" href="assets/img/prehlad.webp" data-full="assets/img/prehlad.webp">
+<img src="assets/img/prehlad-male.webp" width="720" height="450" loading="lazy" alt="Prehľad: Investované, hodnota, nerealizovaný a realizovaný zisk, graf portfólia a rozdelenie podľa sérií." data-alt-en="Overview: Invested, value, unrealised and realised profit, portfolio chart and split by theme.">
+<span class="cap"><strong><span class="sk">Prehľad</span><span class="en">Overview</span></strong><span class="sk">Investované, hodnota, nerealizovaný a realizovaný zisk, graf portfólia a rozdelenie podľa sérií.</span><span class="en">Invested, value, unrealised and realised profit, portfolio chart and split by theme.</span></span>
+</a></li>
+<li><a class="thumb" href="assets/img/tabulka.webp" data-full="assets/img/tabulka.webp">
+<img src="assets/img/tabulka-male.webp" width="720" height="450" loading="lazy" alt="Zbierka ako tabuľka: Tie isté filtre, zoradenie podľa stĺpcov a hromadná úprava." data-alt-en="Collection as a table: The same filters, sorting by column and bulk editing.">
+<span class="cap"><strong><span class="sk">Zbierka ako tabuľka</span><span class="en">Collection as a table</span></strong><span class="sk">Tie isté filtre, zoradenie podľa stĺpcov a hromadná úprava.</span><span class="en">The same filters, sorting by column and bulk editing.</span></span>
+</a></li>
+<li><a class="thumb" href="assets/img/detail.webp" data-full="assets/img/detail.webp">
+<img src="assets/img/detail-male.webp" width="720" height="450" loading="lazy" alt="Detail setu: Tvoje kusy s umiestnením, zisk a vývoj ceny v čase." data-alt-en="Set detail: Your copies with their storage place, profit and price history.">
+<span class="cap"><strong><span class="sk">Detail setu</span><span class="en">Set detail</span></strong><span class="sk">Tvoje kusy s umiestnením, zisk a vývoj ceny v čase.</span><span class="en">Your copies with their storage place, profit and price history.</span></span>
+</a></li>
+<li><a class="thumb" href="assets/img/chcem.webp" data-full="assets/img/chcem.webp">
+<img src="assets/img/chcem-male.webp" width="720" height="450" loading="lazy" alt="Chcem: Želané sety s cieľovou cenou a tým, ako ďaleko od nej je trh." data-alt-en="Wishlist: Wanted sets with a target price and how far the market is from it.">
+<span class="cap"><strong><span class="sk">Chcem</span><span class="en">Wishlist</span></strong><span class="sk">Želané sety s cieľovou cenou a tým, ako ďaleko od nej je trh.</span><span class="en">Wanted sets with a target price and how far the market is from it.</span></span>
+</a></li>
+<li><a class="thumb" href="assets/img/figurky.webp" data-full="assets/img/figurky.webp">
+<img src="assets/img/figurky-male.webp" width="720" height="450" loading="lazy" alt="Zberateľské série: Všetky série minifigúrok aj blind-boxy iných radov, s postupom zbierania." data-alt-en="Collectible series: Every minifigure series and other blind-box lines, with your progress.">
+<span class="cap"><strong><span class="sk">Zberateľské série</span><span class="en">Collectible series</span></strong><span class="sk">Všetky série minifigúrok aj blind-boxy iných radov, s postupom zbierania.</span><span class="en">Every minifigure series and other blind-box lines, with your progress.</span></span>
+</a></li>
+<li><a class="thumb" href="assets/img/seria.webp" data-full="assets/img/seria.webp">
+<img src="assets/img/seria-male.webp" width="720" height="450" loading="lazy" alt="Čo ti chýba: Ktoré figúrky zo série máš a ktoré chýbajú; chýbajúcu pridáš do Chcem jedným klikom." data-alt-en="What you are missing: Which figures of a series you have and which are missing; add one to your wishlist in a click.">
+<span class="cap"><strong><span class="sk">Čo ti chýba</span><span class="en">What you are missing</span></strong><span class="sk">Ktoré figúrky zo série máš a ktoré chýbajú; chýbajúcu pridáš do Chcem jedným klikom.</span><span class="en">Which figures of a series you have and which are missing; add one to your wishlist in a click.</span></span>
+</a></li>
+<li><a class="thumb" href="assets/img/pridat.webp" data-full="assets/img/pridat.webp">
+<img src="assets/img/pridat-male.webp" width="720" height="450" loading="lazy" alt="Pridanie setu: Číslom, ručnou čítačkou alebo kamerou; appka upozorní, keď set už máš." data-alt-en="Adding a set: By number, handheld scanner or camera; the app tells you when you already own it.">
+<span class="cap"><strong><span class="sk">Pridanie setu</span><span class="en">Adding a set</span></strong><span class="sk">Číslom, ručnou čítačkou alebo kamerou; appka upozorní, keď set už máš.</span><span class="en">By number, handheld scanner or camera; the app tells you when you already own it.</span></span>
+</a></li>
+<li><a class="thumb" href="assets/img/tmavy.webp" data-full="assets/img/tmavy.webp">
+<img src="assets/img/tmavy-male.webp" width="720" height="450" loading="lazy" alt="Tmavý režim: Celá appka aj v tmavom, prepína sa jedným tlačidlom." data-alt-en="Dark mode: The whole app in dark, switched with one button.">
+<span class="cap"><strong><span class="sk">Tmavý režim</span><span class="en">Dark mode</span></strong><span class="sk">Celá appka aj v tmavom, prepína sa jedným tlačidlom.</span><span class="en">The whole app in dark, switched with one button.</span></span>
+</a></li>
+</ul>
 </div>
 </section>
+
+<dialog class="lightbox" aria-label="Galéria / Gallery">
+<figure>
+<img alt="">
+<figcaption></figcaption>
+</figure>
+<button type="button" class="lb-prev" aria-label="Predchádzajúci / Previous"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+<button type="button" class="lb-next" aria-label="Ďalší / Next"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+<button type="button" class="lb-close" aria-label="Zavrieť / Close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</dialog>
 
 <section class="section" id="instalacia">
 <div class="wrap">
@@ -281,6 +327,38 @@ Moje kocky
 </div>
 </section>
 
+<section class="section" id="kod">
+<div class="wrap">
+<div class="section-head">
+<h2><span class="sk">Zdrojový kód a webová verzia</span><span class="en">Source code and the web version</span></h2>
+<p><span class="sk">Moje kocky existujú v dvoch podobách s rovnakými funkciami. Obe sú otvorené pod licenciou MIT.</span><span class="en">Moje kocky comes in two forms with the same features. Both are open source under the MIT licence.</span></p>
+</div>
+<div class="grid g2">
+<article class="card repo">
+<div class="card-head"><h3><span class="sk">Pre Windows</span><span class="en">For Windows</span></h3><span class="badge"><span class="sk">odporúčané</span><span class="en">recommended</span></span></div>
+<p><span class="sk">Tento program. Appka beží v okne na tvojom počítači (Python a Vue cez pywebview), bez servera a bez otvoreného portu. Inštalátor sa zostavuje z tohto repozitára a na GitHube ho pri každom vydaní vyrobí automatické zostavenie.</span><span class="en">This program. The app runs in a window on your computer (Python and Vue via pywebview), with no server and no open port. The installer is built from this repository, and GitHub builds it automatically for every release.</span></p>
+<a class="btn-outline repo-link" href="https://github.com/jakubmatisak/moje-kocky-desktop">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/></svg>
+GitHub · moje-kocky-desktop
+</a>
+</article>
+<article class="card repo">
+<div class="card-head"><h3><span class="sk">Webová verzia na vlastný server</span><span class="en">Web version for your own server</span></h3><span class="badge"><span class="sk">pre pokročilých</span><span class="en">for advanced users</span></span></div>
+<p><span class="sk">Tá istá appka ako webová služba, ktorú si spustíš cez Docker na svojom serveri alebo NAS. Hodí sa, keď chceš zbierku otvárať z telefónu či viacerých počítačov alebo ju niekomu ukázať cez odkaz na pozretie (celú zbierku alebo zoznam Chcem, so sumami alebo bez nich).</span><span class="en">The same app as a web service you run with Docker on your own server or NAS. Useful when you want to open your collection from a phone or several computers, or show it to someone through a view-only link (the whole collection or the wishlist, with or without amounts).</span></p>
+<ul class="facts">
+<li><span class="sk">Hostovanú verziu neprevádzkujem. Server, zálohy priečinka <code>data/</code> a aktualizácie sú na tebe.</span><span class="en">I do not run a hosted version. The server, backups of the <code>data/</code> folder and updates are up to you.</span></li>
+<li><span class="sk">Kamera na skenovanie ide len cez HTTPS alebo na localhost.</span><span class="en">The scanning camera only works over HTTPS or on localhost.</span></li>
+<li><span class="sk">Keď appku otvoríš iným ľuďom, stávaš sa prevádzkovateľom podľa GDPR: v appke vyplníš kontakt do zásad ochrany súkromia. Kľúče k službám si aj tak každý zadáva vlastné.</span><span class="en">If you open the app to other people, you become the data controller under GDPR: you fill in your contact for the privacy notice in the app. Everyone still enters their own service keys.</span></li>
+</ul>
+<a class="btn-outline repo-link" href="https://github.com/jakubmatisak/moje-kocky">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/></svg>
+GitHub · moje-kocky
+</a>
+</article>
+</div>
+</div>
+</section>
+
 <section class="section faq" id="otazky">
 <div class="wrap">
 <div class="section-head">
@@ -315,7 +393,8 @@ Moje kocky
 <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D01012"/><g fill="#F5C518"><circle cx="10.24" cy="10.24" r="3.7"/><circle cx="21.76" cy="10.24" r="3.7"/><circle cx="10.24" cy="21.76" r="3.7"/><circle cx="21.76" cy="21.76" r="3.7"/></g></svg>
 Moje kocky
 </span>
-<a href="https://github.com/jakubmatisak/moje-kocky-desktop">GitHub</a>
+<a href="https://github.com/jakubmatisak/moje-kocky-desktop"><span class="sk">Kód pre Windows</span><span class="en">Windows source</span></a>
+<a href="https://github.com/jakubmatisak/moje-kocky"><span class="sk">Kód webovej verzie</span><span class="en">Web version source</span></a>
 <a href="https://github.com/jakubmatisak/moje-kocky-desktop/blob/main/LICENSE"><span class="sk">Licencia MIT</span><span class="en">MIT licence</span></a>
 </div>
 <p><span class="sk">LEGO® je ochranná známka skupiny spoločností LEGO Group, ktorá túto stránku nesponzoruje, neautorizuje ani neschvaľuje.</span> LEGO® is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site. <span class="sk">Moje kocky nie sú spojené s Rebrickable, Brickset, BrickEconomy, UPCitemdb ani Eurostatom. Obrázky setov na snímkach sú chránené autorským právom LEGO Group.</span><span class="en">Moje kocky is not affiliated with Rebrickable, Brickset, BrickEconomy, UPCitemdb or Eurostat. Set images in the screenshots are copyright of the LEGO Group.</span></p>
