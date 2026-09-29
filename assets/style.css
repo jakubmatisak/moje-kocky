@@ -35,8 +35,9 @@
   --footer-link: #FFB3AC;
 }
 
+/* Tmavý režim: podľa systému, kým si návštevník nevyberie sám (data-theme). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     color-scheme: dark;
     --bg: #131212;
     --surface: #1B1A1A;
@@ -60,6 +61,30 @@
     --footer: #0C0B0B;
   }
 }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #131212;
+  --surface: #1B1A1A;
+  --surface-variant: #232222;
+  --border: #353232;
+  --border-soft: #2C2A2A;
+  --text: #EDE7E6;
+  --muted: #A9A4A3;
+  --primary: #D01012;
+  --link: #FFB3AC;
+  --link-hover: #FFDAD6;
+  --primary-container: #93000C;
+  --on-primary-container: #FFDAD6;
+  --heart: #FFDAD6;
+  --chip: #4A3B00;
+  --on-chip: #FFF3C4;
+  --ok: #16351F;
+  --on-ok: #B9E6C4;
+  --shot-border: #353232;
+  --shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+  --footer: #0C0B0B;
+}
+:root[data-theme="light"] { color-scheme: light; }
 
 /* Jazyk: bez skriptu sa ukáže slovenčina. */
 html:not([lang="en"]) .en, html[lang="en"] .sk { display: none !important; }
@@ -82,7 +107,7 @@ h1, h2, h3, p { margin: 0; }
 /* Horná lišta */
 .bar { position: sticky; top: 0; z-index: 10; background: var(--surface); border-bottom: 1px solid var(--border); }
 .bar .wrap { height: 72px; display: flex; align-items: center; gap: 32px; }
-.brand { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; font-size: 20px; font-weight: 700; }
+.brand { display: flex; align-items: center; gap: 12px; white-space: nowrap; color: var(--text); text-decoration: none; font-size: 20px; font-weight: 700; }
 .brand:hover { color: var(--text); }
 .nav { display: flex; gap: 24px; flex-grow: 1; font-size: 15px; font-weight: 500; }
 .nav a { color: var(--text); text-decoration: none; }
@@ -90,6 +115,11 @@ h1, h2, h3, p { margin: 0; }
 .lang { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
 .lang button { border: 0; min-width: 44px; height: 36px; background: var(--surface); color: var(--text); font: 500 13px Roboto, system-ui, sans-serif; cursor: pointer; }
 .lang button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+.theme { width: 44px; height: 44px; border: 0; border-radius: 22px; background: transparent; color: var(--text); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.theme:hover { background: var(--surface-variant); }
+.theme .sun { display: none; }
+.is-dark .theme .sun { display: block; }
+.is-dark .theme .moon { display: none; }
 .btn-outline { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 1px solid var(--text); border-radius: 6px; color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500; }
 .btn-outline:hover { color: var(--text); background: var(--surface-variant); }
 .menu { display: none; position: relative; }
@@ -186,7 +216,9 @@ footer p { max-width: 960px; font-size: 14px; line-height: 22px; color: var(--fo
 /* Telefón */
 @media (max-width: 640px) {
   .wrap { padding: 0 20px; }
-  .bar .wrap { height: 64px; padding-right: 12px; }
+  .bar .wrap { height: 64px; padding-right: 8px; gap: 4px; }
+  .brand { gap: 10px; }
+  .lang button { min-width: 40px; }
   .brand { font-size: 18px; }
   .hero { padding: 36px 0 40px; }
   .hero .wrap { gap: 28px; }

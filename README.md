@@ -8,8 +8,8 @@ Je to jeden statický súbor HTML bez frameworku a bez zostavovania:
 
 ```
 index.html                 obsah, slovensky aj anglicky (.sk / .en)
-assets/style.css           farby a rozloženie ako v appke, tmavý režim podľa systému
-assets/site.js             prepínač jazyka (?lang=en), pás galérie a prehliadač, nič neukladá
+assets/style.css           farby a rozloženie ako v appke, tmavý režim podľa systému alebo voľby
+assets/site.js             jazyk (?lang=en), svetlý/tmavý režim (localStorage „theme“), galéria
 assets/fonts/              Roboto (OFL-1.1, pozri OFL.txt), uložené tu, nie z Google Fonts
 assets/img/                snímky desktopu s ukážkovou zbierkou (vymyslené ručné ceny), *-male = náhľady
 third-party-notices.txt    licencie knižníc v inštalátore (z packaging/notices.py desktopu)
@@ -19,7 +19,8 @@ Náhľad: `python -m http.server` v tomto priečinku.
 
 ## Pravidlá, ktoré stránka dodržiava
 
-- **Žiadne cookies, analytika ani cudzie servery.** Písmo, ikony aj skripty sú
+- **Žiadne cookies, analytika ani cudzie servery.** V prehliadači ostáva len voľba
+  režimu (`localStorage.theme`), o ktorú si návštevník sám požiadal. Písmo, ikony aj skripty sú
   súčasťou stránky, takže návštevníkova IP nikam neodchádza. Ak niečo také
   pribudne, treba najprv lištu so súhlasom.
 - **LEGO® Fair Play.** Značka len ako prídavné meno a vždy so ®, nikdy logo LEGO

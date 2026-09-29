@@ -54,6 +54,28 @@
 
   apply(initial(), false);
 
+  // Svetlý a tmavý režim: kým si návštevník nevyberie, platí nastavenie systému.
+  // Voľba ide do localStorage (jediné, čo si stránka pamätá), v súkromnom okne nie.
+  var root = document.documentElement;
+  var system = window.matchMedia('(prefers-color-scheme: dark)');
+  var themeButton = document.querySelector('.theme');
+  var paint = function () {
+    var dark = root.dataset.theme ? root.dataset.theme === 'dark' : system.matches;
+    root.classList.toggle('is-dark', dark);
+    if (themeButton) themeButton.setAttribute('aria-pressed', String(dark));
+    var color = document.querySelector('meta[name="color-scheme"]');
+    if (color) color.setAttribute('content', root.dataset.theme || 'light dark');
+  };
+  if (themeButton) {
+    themeButton.addEventListener('click', function () {
+      root.dataset.theme = root.classList.contains('is-dark') ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) { /* súkromné okno */ }
+      paint();
+    });
+  }
+  if (system.addEventListener) system.addEventListener('change', paint);
+  paint();
+
   // Galéria. Pás na stránke sa posúva do strany (šípky ho posunú o obrázok),
   // klik otvorí prehliadač cez celú obrazovku: snímky vedľa seba, posúva sa
   // prstom, touchpadom, tlačidlami aj klávesmi. Bez skriptu odkaz otvorí obrázok.
