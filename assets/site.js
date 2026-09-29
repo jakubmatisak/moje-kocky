@@ -54,47 +54,92 @@
 
   apply(initial(), false);
 
-  // Galéria: náhľad otvorí veľkú snímku v dialógu, šípky a klávesy listujú.
-  // Bez skriptu odkaz otvorí obrázok priamo.
-  var thumbs = Array.prototype.slice.call(document.querySelectorAll('.gallery .thumb'));
-  var box = document.querySelector('.lightbox');
-  if (box && typeof box.showModal === 'function' && thumbs.length) {
-    var big = box.querySelector('img');
-    var caption = box.querySelector('figcaption');
-    var current = 0;
+  // Galéria. Pás na stránke sa posúva do strany (šípky ho posunú o obrázok),
+  // klik otvorí prehliadač cez celú obrazovku: snímky vedľa seba, posúva sa
+  // prstom, touchpadom, tlačidlami aj klávesmi. Bez skriptu odkaz otvorí obrázok.
+  var strip = document.querySelector('.strip');
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll('.strip .thumb'));
+  var viewer = document.querySelector('.viewer');
 
-    var show = function (index) {
-      current = (index + thumbs.length) % thumbs.length;
-      var thumb = thumbs[current];
+  if (strip) {
+    var back = document.querySelector('.strip-prev');
+    var on = document.querySelector('.strip-next');
+    var step = function () { return strip.querySelector('li').getBoundingClientRect().width + 20; };
+    var edges = function () {
+      back.disabled = strip.scrollLeft < 8;
+      on.disabled = strip.scrollLeft + strip.clientWidth > strip.scrollWidth - 8;
+    };
+    back.addEventListener('click', function () { strip.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    on.addEventListener('click', function () { strip.scrollBy({ left: step(), behavior: 'smooth' }); });
+    strip.addEventListener('scroll', edges, { passive: true });
+    window.addEventListener('resize', edges);
+    edges();
+  }
+
+  if (viewer && typeof viewer.showModal === 'function' && thumbs.length) {
+    var track = viewer.querySelector('.track');
+    var count = viewer.querySelector('.viewer-count');
+    var index = 0;
+
+    var build = function () {
       var lang = document.documentElement.lang === 'en' ? 'en' : 'sk';
-      var parts = thumb.querySelectorAll('.cap .' + lang);
-      big.src = thumb.dataset.full;
-      big.alt = thumb.querySelector('img').alt;
-      caption.innerHTML = '';
-      var title = document.createElement('strong');
-      title.textContent = parts[0] ? parts[0].textContent : '';
-      caption.appendChild(title);
-      caption.appendChild(document.createTextNode(parts[1] ? parts[1].textContent : ''));
+      track.textContent = '';
+      thumbs.forEach(function (thumb) {
+        var parts = thumb.querySelectorAll('.cap .' + lang);
+        var slide = document.createElement('figure');
+        slide.className = 'slide';
+        var img = document.createElement('img');
+        img.src = thumb.dataset.full;
+        img.alt = thumb.querySelector('img').alt;
+        img.width = 1440;
+        img.height = 900;
+        var caption = document.createElement('figcaption');
+        var title = document.createElement('strong');
+        title.textContent = parts[0] ? parts[0].textContent : '';
+        caption.appendChild(title);
+        caption.appendChild(document.createTextNode(parts[1] ? parts[1].textContent : ''));
+        slide.appendChild(img);
+        slide.appendChild(caption);
+        track.appendChild(slide);
+      });
+    };
+    var label = function () { count.textContent = (index + 1) + ' / ' + thumbs.length; };
+    var go = function (to, smooth) {
+      index = Math.max(0, Math.min(thumbs.length - 1, to));
+      track.scrollTo({ left: index * track.clientWidth, behavior: smooth ? 'smooth' : 'auto' });
+      label();
     };
 
-    thumbs.forEach(function (thumb, index) {
+    thumbs.forEach(function (thumb, i) {
       thumb.addEventListener('click', function (event) {
         event.preventDefault();
-        show(index);
-        box.showModal();
+        build();
+        viewer.showModal();
+        document.body.style.overflow = 'hidden';
+        go(i, false);
+        track.focus();
       });
     });
-    box.querySelector('.lb-prev').addEventListener('click', function () { show(current - 1); });
-    box.querySelector('.lb-next').addEventListener('click', function () { show(current + 1); });
-    box.querySelector('.lb-close').addEventListener('click', function () { box.close(); });
-    box.addEventListener('keydown', function (event) {
-      if (event.key === 'ArrowLeft') show(current - 1);
-      if (event.key === 'ArrowRight') show(current + 1);
+    track.addEventListener('scroll', function () {
+      var now = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+      if (now !== index) { index = now; label(); }
+    }, { passive: true });
+    viewer.querySelector('.viewer-prev').addEventListener('click', function () { go(index - 1, true); });
+    viewer.querySelector('.viewer-next').addEventListener('click', function () { go(index + 1, true); });
+    viewer.querySelector('.viewer-close').addEventListener('click', function () { viewer.close(); });
+    viewer.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); go(index - 1, true); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); go(index + 1, true); }
     });
-    // Klik mimo obrázka (na pozadie) dialóg zavrie.
-    box.addEventListener('click', function (event) {
-      if (event.target === box) box.close();
+    // Klik vedľa snímky (na tmavé pozadie) prehliadač zavrie.
+    track.addEventListener('click', function (event) {
+      if (event.target === track || event.target.classList.contains('slide')) viewer.close();
     });
-    box.addEventListener('close', function () { thumbs[current].focus(); });
+    window.addEventListener('resize', function () { if (viewer.open) go(index, false); });
+    viewer.addEventListener('close', function () {
+      document.body.style.overflow = '';
+      thumbs[index].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      thumbs[index].focus({ preventScroll: true });
+    });
   }
 })();

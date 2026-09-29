@@ -9,7 +9,7 @@ Je to jeden statický súbor HTML bez frameworku a bez zostavovania:
 ```
 index.html                 obsah, slovensky aj anglicky (.sk / .en)
 assets/style.css           farby a rozloženie ako v appke, tmavý režim podľa systému
-assets/site.js             prepínač jazyka (?lang=en) a zväčšenie galérie, nič neukladá
+assets/site.js             prepínač jazyka (?lang=en), pás galérie a prehliadač, nič neukladá
 assets/fonts/              Roboto (OFL-1.1, pozri OFL.txt), uložené tu, nie z Google Fonts
 assets/img/                snímky desktopu s ukážkovou zbierkou (vymyslené ručné ceny), *-male = náhľady
 third-party-notices.txt    licencie knižníc v inštalátore (z packaging/notices.py desktopu)
@@ -24,8 +24,9 @@ Náhľad: `python -m http.server` v tomto priečinku.
   pribudne, treba najprv lištu so súhlasom.
 - **LEGO® Fair Play.** Značka len ako prídavné meno a vždy so ®, nikdy logo LEGO
   ani „LEGO“ v adrese; v päte upozornenie, že LEGO Group stránku nesponzoruje.
-- **Kredit všetkým službám a knižniciam.** Pri novej závislosti v desktope
-  pregenerovať `third-party-notices.txt` a doplniť ju do zoznamu, ak je hlavná.
+- **Kredit všetkým službám a knižniciam.** Služby majú kartu v Licenciách,
+  knižnice sú v `third-party-notices.txt` (odkaz v Licenciách); pri novej
+  závislosti v desktope ho pregenerovať.
 - Texty sú v oboch jazykoch; nový text = `<span class="sk">` aj `<span class="en">`.
 
 ## Licencia

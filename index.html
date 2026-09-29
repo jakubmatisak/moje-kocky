@@ -92,10 +92,10 @@ Moje kocky
 
 <div class="wrap">
 <section class="promise" aria-labelledby="promise-title">
-<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="2"/><circle cx="15.5" cy="8.5" r="2"/><circle cx="8.5" cy="15.5" r="2"/><circle cx="15.5" cy="15.5" r="2"/></svg>
 <div>
-<h2 id="promise-title"><span class="sk">Robené z lásky ku kockám, nie pre peniaze</span><span class="en">Made for the love of bricks, not for money</span></h2>
-<p><span class="sk">Moje kocky sú projekt fanúšika. Nič nepredávam, nechcem príspevky, nemám reklamy ani analytiku a appka nikam neposiela tvoje údaje. Program aj zdrojový kód dostaneš zadarmo pod licenciou MIT. Nie je to produkt skupiny LEGO Group ani žiadnej zo služieb nižšie.</span><span class="en">Moje kocky (“My bricks”) is a fan project. I sell nothing, take no donations, show no ads, run no analytics, and the app sends your data nowhere. The program and its source code are free under the MIT licence. It is not a product of the LEGO Group or of any of the services below.</span></p>
+<h2 id="promise-title"><span class="sk">Nekomerčný projekt fanúšika</span><span class="en">A non-commercial fan project</span></h2>
+<p><span class="sk">Nič nepredávam, nechcem príspevky, nemám reklamy ani analytiku a appka nikam neposiela tvoje údaje. Program aj zdrojový kód sú zadarmo pod licenciou MIT. Nie je to produkt LEGO Group ani žiadnej zo služieb nižšie.</span><span class="en">I sell nothing, take no donations, show no ads, run no analytics, and the app sends your data nowhere. The program and its source code are free under the MIT licence. It is not a product of the LEGO Group or of any of the services below.</span></p>
 </div>
 </section>
 </div>
@@ -145,11 +145,13 @@ Moje kocky
 <div class="wrap">
 <div class="section-head">
 <h2><span class="sk">Ako to vyzerá</span><span class="en">What it looks like</span></h2>
-<p><span class="sk">Klikni na obrázok a zväčší sa; šípkami listuješ. Snímky sú z desktopovej verzie s ukážkovou zbierkou a vymyslenými, ručne zadanými cenami. Ukážkový účet nemá kľúče Brickset ani BrickEconomy, preto miestami vidieť tip, čo by služba doplnila.</span><span class="en">Click a picture to enlarge it; use the arrows to browse. Screenshots come from the desktop version with a sample collection and made-up, manually entered prices. The sample account has no Brickset or BrickEconomy key, so you can see hints of what those services would add.</span></p>
+<p><span class="sk">Pás posúvaš do strany; klikni na obrázok a otvorí sa cez celú obrazovku, kde listuješ ďalej. Snímky sú z desktopovej verzie s ukážkovou zbierkou a vymyslenými, ručne zadanými cenami. Ukážkový účet nemá kľúče Brickset ani BrickEconomy, preto miestami vidieť tip, čo by služba doplnila.</span><span class="en">Scroll the strip sideways; click a picture to open it full screen and keep browsing there. Screenshots come from the desktop version with a sample collection and made-up, manually entered prices. The sample account has no Brickset or BrickEconomy key, so you can see hints of what those services would add.</span></p>
 </div>
-<ul class="gallery">
-<li class="wide"><a class="thumb" href="assets/img/zbierka.webp" data-full="assets/img/zbierka.webp">
-<img src="assets/img/zbierka.webp" width="1440" height="900" loading="lazy" alt="Zbierka ako karty: Pri každom sete kúpna cena, dnešná hodnota a zisk; filtre vpravo." data-alt-en="Collection as cards: Purchase price, today’s value and profit for every set; filters on the right.">
+<div class="carousel">
+<button type="button" class="strip-prev" aria-label="Posunúť späť / Scroll back"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+<ul class="strip">
+<li><a class="thumb" href="assets/img/zbierka.webp" data-full="assets/img/zbierka.webp">
+<img src="assets/img/zbierka-male.webp" width="720" height="450" loading="lazy" alt="Zbierka ako karty: Pri každom sete kúpna cena, dnešná hodnota a zisk; filtre vpravo." data-alt-en="Collection as cards: Purchase price, today’s value and profit for every set; filters on the right.">
 <span class="cap"><strong><span class="sk">Zbierka ako karty</span><span class="en">Collection as cards</span></strong><span class="sk">Pri každom sete kúpna cena, dnešná hodnota a zisk; filtre vpravo.</span><span class="en">Purchase price, today’s value and profit for every set; filters on the right.</span></span>
 </a></li>
 <li><a class="thumb" href="assets/img/prehlad.webp" data-full="assets/img/prehlad.webp">
@@ -185,17 +187,17 @@ Moje kocky
 <span class="cap"><strong><span class="sk">Tmavý režim</span><span class="en">Dark mode</span></strong><span class="sk">Celá appka aj v tmavom, prepína sa jedným tlačidlom.</span><span class="en">The whole app in dark, switched with one button.</span></span>
 </a></li>
 </ul>
+<button type="button" class="strip-next" aria-label="Posunúť ďalej / Scroll on"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
 </div>
 </section>
 
-<dialog class="lightbox" aria-label="Galéria / Gallery">
-<figure>
-<img alt="">
-<figcaption></figcaption>
-</figure>
-<button type="button" class="lb-prev" aria-label="Predchádzajúci / Previous"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-<button type="button" class="lb-next" aria-label="Ďalší / Next"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-<button type="button" class="lb-close" aria-label="Zavrieť / Close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+<dialog class="viewer" aria-label="Galéria / Gallery">
+<div class="viewer-bar"><span class="viewer-count" aria-live="polite"></span>
+<button type="button" class="viewer-close" aria-label="Zavrieť / Close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="track" tabindex="-1"></div>
+<button type="button" class="viewer-prev" aria-label="Predchádzajúci / Previous"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+<button type="button" class="viewer-next" aria-label="Ďalší / Next"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
 </dialog>
 
 <section class="section" id="instalacia">
@@ -245,7 +247,7 @@ Moje kocky
 <div class="wrap">
 <div class="section-head">
 <h2><span class="sk">Licencie a podmienky, ktoré appka dodržiava</span><span class="en">Licences and terms the app follows</span></h2>
-<p><span class="sk">Ku každej licencii a podmienkam je tu napísané, ako ich appka dodržiava. Stav k septembru 2026; nie je to právna rada.</span><span class="en">For each licence and set of terms, here is how the app complies. As of September 2026; this is not legal advice.</span></p>
+<p><span class="sk">Ku každej licencii a podmienkam je tu napísané, ako ich appka dodržiava. Stav k septembru 2026; nie je to právna rada. Texty licencií všetkých knižníc, z ktorých je program poskladaný, pribalí inštalátor (THIRD-PARTY-NOTICES.txt) a sú aj <a href="third-party-notices.txt">tu</a>.</span><span class="en">For each licence and set of terms, here is how the app complies. As of September 2026; this is not legal advice. The licence texts of every library the program is built from ship with the installer (THIRD-PARTY-NOTICES.txt) and are also <a href="third-party-notices.txt">here</a>.</span></p>
 </div>
 <div class="grid g2">
 <article class="card">
@@ -281,49 +283,6 @@ Moje kocky
 <p><span class="sk">Appka nemá server ani prevádzkovateľa, autor k tvojim údajom nemá prístup. Export všetkých údajov aj zmazanie účtu sú v Nastaveniach. Táto stránka nepoužíva cookies, analytiku ani písma či skripty z cudzích serverov.</span><span class="en">The app has no server and no operator; its author has no access to your data. Exporting all your data and deleting your account are in Settings. This site uses no cookies, no analytics and no fonts or scripts from third-party servers.</span></p>
 </article>
 </div>
-</div>
-</section>
-
-<section class="section">
-<div class="wrap">
-<div class="section-head">
-<h2 class="small"><span class="sk">Poďakovanie autorom softvéru</span><span class="en">Thanks to the software authors</span></h2>
-<p><span class="sk">Hlavné knižnice, z ktorých je program poskladaný. Inštalátor pribalí texty licencií všetkých pribalených knižníc v súbore THIRD-PARTY-NOTICES.txt (v ponuke Štart: „Licencie softvéru tretích strán“), <a href="third-party-notices.txt">úplný zoznam je aj tu</a>.</span><span class="en">The main libraries the program is built from. The installer ships the licence texts of every bundled library in THIRD-PARTY-NOTICES.txt (Start menu: “Licencie softvéru tretích strán”); <a href="third-party-notices.txt">the full list is here too</a>.</span></p>
-</div>
-<ul class="software">
-<li><a href="https://www.python.org">Python</a><span>PSF-2.0</span></li>
-<li><a href="https://fastapi.tiangolo.com">FastAPI</a><span>MIT</span></li>
-<li><a href="https://www.starlette.io">Starlette</a><span>BSD-3-Clause</span></li>
-<li><a href="https://docs.pydantic.dev">Pydantic</a><span>MIT</span></li>
-<li><a href="https://www.sqlalchemy.org">SQLAlchemy</a><span>MIT</span></li>
-<li><a href="https://alembic.sqlalchemy.org">Alembic</a><span>MIT</span></li>
-<li><a href="https://github.com/omnilib/aiosqlite">aiosqlite</a><span>MIT</span></li>
-<li><a href="https://www.python-httpx.org">HTTPX</a><span>BSD-3-Clause</span></li>
-<li><a href="https://argon2-cffi.readthedocs.io">argon2-cffi</a><span>MIT</span></li>
-<li><a href="https://pyjwt.readthedocs.io">PyJWT</a><span>MIT</span></li>
-<li><a href="https://cryptography.io">cryptography</a><span>Apache-2.0 / BSD</span></li>
-<li><a href="https://openpyxl.readthedocs.io">openpyxl</a><span>MIT</span></li>
-<li><a href="https://python-pillow.org">Pillow</a><span>MIT-CMU</span></li>
-<li><a href="https://github.com/certifi/python-certifi">certifi</a><span>MPL-2.0</span></li>
-<li><a href="https://pywebview.flowrl.com">pywebview</a><span>BSD-3-Clause</span></li>
-<li><a href="https://pythonnet.github.io">pythonnet</a><span>MIT</span></li>
-<li><a href="https://pyinstaller.org">PyInstaller</a><span><span class="sk">GPL-2.0 s výnimkou</span><span class="en">GPL-2.0 with exception</span></span></li>
-<li><a href="https://jrsoftware.org/isinfo.php">Inno Setup</a><span>Inno Setup License</span></li>
-<li><a href="https://vuejs.org">Vue</a><span>MIT</span></li>
-<li><a href="https://vuetifyjs.com">Vuetify</a><span>MIT</span></li>
-<li><a href="https://pinia.vuejs.org">Pinia</a><span>MIT</span></li>
-<li><a href="https://router.vuejs.org">Vue Router</a><span>MIT</span></li>
-<li><a href="https://vue-i18n.intlify.dev">vue-i18n</a><span>MIT</span></li>
-<li><a href="https://vueuse.org">VueUse</a><span>MIT</span></li>
-<li><a href="https://www.chartjs.org">Chart.js</a><span>MIT</span></li>
-<li><a href="https://vue-chartjs.org">vue-chartjs</a><span>MIT</span></li>
-<li><a href="https://openapi-ts.dev">openapi-fetch</a><span>MIT</span></li>
-<li><a href="https://github.com/Sec-ant/zxing-wasm">zxing-wasm</a><span>MIT</span></li>
-<li><a href="https://github.com/zxing-cpp/zxing-cpp">ZXing-C++</a><span>Apache-2.0</span></li>
-<li><a href="https://pictogrammers.com/library/mdi/">Material Design Icons</a><span>Apache-2.0</span></li>
-<li><a href="https://github.com/googlefonts/roboto-classic">Roboto</a><span>OFL-1.1</span></li>
-</ul>
-<p class="note"><span class="sk">PyInstaller je pod GPL-2.0 s výnimkou, ktorá výslovne dovoľuje šíriť ním zabalené programy pod vlastnou licenciou. certifi (MPL-2.0) je v programe nezmenený. Microsoft Edge WebView2 nie je súčasťou inštalátora, je súčasťou Windows.</span><span class="en">PyInstaller is GPL-2.0 with an exception that explicitly allows programs packaged with it to be distributed under their own licence. certifi (MPL-2.0) is included unmodified. Microsoft Edge WebView2 is not part of the installer; it comes with Windows.</span></p>
 </div>
 </section>
 
