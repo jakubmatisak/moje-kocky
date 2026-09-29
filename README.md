@@ -1,8 +1,8 @@
-# jakubmatisak.github.io
+# Moje kocky – stránka projektu
 
 Stránka na stiahnutie [Moje kocky Desktop](https://github.com/jakubmatisak/moje-kocky-desktop),
 nekomerčnej evidencie zbierky LEGO® setov pre Windows. Beží na GitHub Pages:
-<https://jakubmatisak.github.io>.
+<https://jakubmatisak.github.io/moje-kocky-website/>.
 
 Je to jeden statický súbor HTML bez frameworku a bez zostavovania:
 
