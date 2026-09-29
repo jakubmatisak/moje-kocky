@@ -4,10 +4,10 @@
 
 Stránka na stiahnutie [Moje kocky Desktop](https://github.com/jakubmatisak/moje-kocky-desktop),
 nekomerčnej evidencie zbierky LEGO® setov pre Windows. Beží na GitHub Pages:
-<https://jakubmatisak.github.io/moje-kocky-website/>.
+<https://jakubmatisak.github.io/moje-kocky/>.
 
 Súvisiace repozitáre: [moje-kocky-desktop](https://github.com/jakubmatisak/moje-kocky-desktop)
-(program pre Windows a inštalátor) a [moje-kocky](https://github.com/jakubmatisak/moje-kocky)
+(program pre Windows a inštalátor) a [moje-kocky-webapp](https://github.com/jakubmatisak/moje-kocky-webapp)
 (webová verzia na vlastný server).
 
 ## Obsah repozitára
@@ -69,11 +69,11 @@ nesponzoruje, neautorizuje ani neschvaľuje.
 
 The download page for [Moje kocky Desktop](https://github.com/jakubmatisak/moje-kocky-desktop),
 a non-commercial tracker for LEGO® set collections on Windows (“Moje kocky” is Slovak for
-“My bricks”). It runs on GitHub Pages: <https://jakubmatisak.github.io/moje-kocky-website/>
-(English version: <https://jakubmatisak.github.io/moje-kocky-website/?lang=en>).
+“My bricks”). It runs on GitHub Pages: <https://jakubmatisak.github.io/moje-kocky/>
+(English version: <https://jakubmatisak.github.io/moje-kocky/?lang=en>).
 
 Related repositories: [moje-kocky-desktop](https://github.com/jakubmatisak/moje-kocky-desktop)
-(the Windows program and installer) and [moje-kocky](https://github.com/jakubmatisak/moje-kocky)
+(the Windows program and installer) and [moje-kocky-webapp](https://github.com/jakubmatisak/moje-kocky-webapp)
 (the web version for your own server).
 
 ## What is in this repository
