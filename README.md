@@ -36,3 +36,14 @@ Obsah a kód stránky: [MIT](LICENSE). Písmo Roboto: SIL Open Font License 1.1.
 Snímky obsahujú obrázky výrobkov, ktoré sú chránené autorským právom LEGO Group.
 LEGO® je ochranná známka skupiny spoločností LEGO Group, ktorá túto stránku
 nesponzoruje, neautorizuje ani neschvaľuje.
+
+## Vyhľadávače (SEO)
+
+- `<head>` má kanonickú adresu, `hreflang` (koreň = slovensky, `?lang=en` = anglicky),
+  Open Graph a Twitter kartu s obrázkom `assets/img/og.jpg` (1200×630) a štruktúrované
+  dáta `SoftwareApplication` (zadarmo, Windows) v JSON-LD.
+- `site.js` pri angličtine prepne canonical, `og:url`, názov a popis. Roboty bez
+  `?lang` dostanú vždy slovenčinu, nie jazyk prehliadača, aby sa verzie nemiešali.
+- `sitemap.xml` obsahuje obe verzie. `robots.txt` na podstránke projektu (`/moje-kocky-website/`)
+  vyhľadávače nečítajú, preto tu nie je. Mapu stránky treba odoslať v Google Search Console.
+- Pri zmene obsahu uprav `lastmod` v `sitemap.xml` a popisy v `<head>` aj v `site.js` (`TEXT`).

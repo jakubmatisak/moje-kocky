@@ -1,20 +1,25 @@
-// Prepínač jazyka. Bez skriptu je stránka po slovensky; nič sa neukladá
-// (žiadne cookies ani localStorage), voľba ide len do adresy ako ?lang=en.
+// Prepínač jazyka. Bez skriptu je stránka po slovensky; voľba jazyka sa
+// neukladá, ide len do adresy ako ?lang=en. Koreňová adresa je slovenská
+// verzia a ?lang=en anglická (canonical a hreflang v <head>), preto roboty
+// vyhľadávačov dostanú bez parametra vždy slovenčinu, nie jazyk prehliadača.
 (function () {
   var TEXT = {
     sk: {
-      title: 'Moje kocky – evidencia zbierky pre Windows',
-      description: 'Bezplatná evidencia zbierky LEGO® setov a figúrok pre Windows: hodnota, zisk, čiarové kódy, série figúrok. Údaje ostávajú na tvojom počítači.'
+      title: 'Moje kocky – bezplatná evidencia zbierky LEGO® setov pre Windows',
+      description: 'Bezplatná evidencia zbierky LEGO® setov a minifigúrok pre Windows: kúpna cena, hodnota a zisk, čiarové kódy, zberateľské série. Bez reklám, údaje ostávajú u teba.',
+      locale: 'sk_SK'
     },
     en: {
-      title: 'Moje kocky – LEGO® collection tracker for Windows',
-      description: 'A free tracker for your LEGO® sets and minifigures on Windows: value, profit, barcodes, minifigure series. Your data stays on your computer.'
+      title: 'Moje kocky – free LEGO® collection tracker for Windows',
+      description: 'A free tracker for your LEGO® sets and minifigures on Windows: purchase price, value and profit, barcodes, collectible series. No ads, your data stays with you.',
+      locale: 'en_US'
     }
   };
 
   function initial () {
     var asked = new URLSearchParams(location.search).get('lang');
     if (asked === 'sk' || asked === 'en') return asked;
+    if (/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)) return 'sk';
     var browser = (navigator.languages && navigator.languages[0]) || navigator.language || 'sk';
     return /^(sk|cs)\b/i.test(browser) ? 'sk' : 'en';
   }
@@ -25,6 +30,19 @@
     document.title = TEXT[lang].title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', TEXT[lang].description);
+    // Anglická verzia má vlastnú adresu, nech ju vyhľadávač nepovažuje za kópiu.
+    var canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      var base = canonical.href.split('?')[0];
+      var own = lang === 'en' ? base + '?lang=en' : base;
+      canonical.href = own;
+      var ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', own);
+    }
+    [['og:title', 'title'], ['og:description', 'description'], ['og:locale', 'locale']].forEach(function (pair) {
+      var tag = document.querySelector('meta[property="' + pair[0] + '"]');
+      if (tag) tag.setAttribute('content', TEXT[lang][pair[1]]);
+    });
     document.querySelectorAll('img[data-alt-en]').forEach(function (img) {
       if (!img.dataset.altSk) img.dataset.altSk = img.alt;
       img.alt = lang === 'en' ? img.dataset.altEn : img.dataset.altSk;
