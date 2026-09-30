@@ -281,7 +281,7 @@ Moje kocky
 <article class="card">
 <span class="step" aria-hidden="true">3</span>
 <h3><span class="sk">Vytvor si účet</span><span class="en">Create your account</span></h3>
-<p><span class="sk">Meno a heslo, len na tomto počítači. Potom v Nastaveniach → Dáta pripoj služby, ktoré chceš používať.</span><span class="en">A name and password, stored only on this computer. Then connect the services you want in Settings → Data.</span></p>
+<p><span class="sk">E-mail, heslo (aspoň 8 znakov) a nepovinné meno, uložené len na tomto počítači. Potom v Nastaveniach → Dáta pripoj služby, ktoré chceš používať.</span><span class="en">An e-mail, a password (at least 8 characters) and an optional name, stored only on this computer. Then connect the services you want in Settings → Data.</span></p>
 </article>
 </div>
 <p class="note"><span class="sk">Potrebuje Microsoft Edge WebView2, ktorý vo Windows 10 a 11 býva; ak chýba, inštalátor ponúkne stránku na jeho stiahnutie. Údaje sú v <code>%APPDATA%\MojeKocky</code>, úplná záloha je kópia tohto priečinka. Nová verzia sa nainštaluje cez starú a údaje ostanú; pri jej prvom spustení sa databáza najprv sama zálohuje do <code>%APPDATA%\MojeKocky\backups</code> (drží sa 5 posledných záloh).</span><span class="en">It needs Microsoft Edge WebView2, which Windows 10 and 11 usually have; if it is missing, the installer offers to open its download page. Your data lives in <code>%APPDATA%\MojeKocky</code>; a full backup is a copy of that folder. A new version installs over the old one and keeps your data; the first time it starts, it backs up the database to <code>%APPDATA%\MojeKocky\backups</code> before anything else (the last 5 backups are kept).</span></p>
@@ -338,7 +338,7 @@ Moje kocky
 </article>
 <article class="card">
 <div class="card-head"><h3>UPCitemdb</h3><span class="badge"><span class="sk">bezplatné API</span><span class="en">free API</span></span></div>
-<p><span class="sk">Predvolene vypnuté. Po zapnutí sa pýta len na čiarový kód a každý kód najviac raz za 30 dní.</span><span class="en">Off by default. Once enabled, it only asks about a barcode, and each code at most once every 30 days.</span></p>
+<p><span class="sk">Predvolene vypnuté. Po zapnutí sa pýta len na čiarový kód. Kód, ktorý sa nenašiel, sa 30 dní nehľadá znova (kým sám nestlačíš Skúsiť znova), nájdený sa už nehľadá vôbec.</span><span class="en">Off by default. Once enabled, it only asks about a barcode. A code that was not found is not looked up again for 30 days (unless you press Try again yourself); a code that was found is never looked up again.</span></p>
 </article>
 <article class="card">
 <div class="card-head"><h3><span class="sk">Súkromie (GDPR)</span><span class="en">Privacy (GDPR)</span></h3><span class="badge"><span class="sk">len na tvojom PC</span><span class="en">your PC only</span></span></div>
@@ -357,7 +357,7 @@ Moje kocky
 <div class="grid g2">
 <article class="card repo">
 <div class="card-head"><h3><span class="sk">Pre Windows</span><span class="en">For Windows</span></h3><span class="badge"><span class="sk">odporúčané</span><span class="en">recommended</span></span></div>
-<p><span class="sk">Tento program. Appka beží v okne na tvojom počítači (Python a Vue cez pywebview), bez servera a bez otvoreného portu. Inštalátor sa zostavuje z tohto repozitára a na GitHube ho pri každom vydaní vyrobí automatické zostavenie.</span><span class="en">This program. The app runs in a window on your computer (Python and Vue via pywebview), with no server and no open port. The installer is built from this repository, and GitHub builds it automatically for every release.</span></p>
+<p><span class="sk">Tento program. Appka beží v okne na tvojom počítači (Python a Vue cez pywebview), bez servera a bez otvoreného portu. Inštalátor sa zostavuje z repozitára moje-kocky-desktop a na GitHube ho pri každom vydaní vyrobí automatické zostavenie.</span><span class="en">This program. The app runs in a window on your computer (Python and Vue via pywebview), with no server and no open port. The installer is built from the moje-kocky-desktop repository, and GitHub builds it automatically for every release.</span></p>
 <a class="btn-outline repo-link" href="https://github.com/jakubmatisak/moje-kocky-desktop">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/></svg>
 GitHub · moje-kocky-desktop
