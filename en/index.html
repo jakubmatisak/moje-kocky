@@ -79,7 +79,7 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../assets/fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="../assets/style.css?v=5">
+<link rel="stylesheet" href="../assets/style.css?v=6">
 <script src="../assets/site.js?v=6" defer></script>
 </head>
 <body>
@@ -206,6 +206,21 @@ Moje kocky
 <h3><span class="sk">Import, export a fotky</span><span class="en">Import, export and photos</span></h3>
 <p><span class="sk">Prenes zbierku z Excelu (CSV aj XLSX) a späť. Ku každému kusu vlastné fotky, zmenšené a bez polohy GPS.</span><span class="en">Bring your collection over from Excel (CSV or XLSX) and back. Your own photos for every item, resized and without GPS location.</span></p>
 </article>
+<article class="card">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M14.5 9.5a3 3 0 1 0 0 5"/><path d="M8 11h5"/><path d="M8 13h5"/></svg>
+<h3><span class="sk">Tvoja mena</span><span class="en">Your currency</span></h3>
+<p><span class="sk">Sumy v eurách, korunách, dolároch, librách, zlotých, forintoch či frankoch, prepočítané kurzom Európskej centrálnej banky. Set kúpený v Česku zadáš v korunách, appka ho prepočíta kurzom zo dňa kúpy.</span><span class="en">Amounts in euros, crowns, dollars, pounds, zlotys, forints or francs, converted at the European Central Bank rate. A set bought in Czechia is entered in crowns and converted at the rate of the purchase date.</span></p>
+</article>
+<article class="card">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="10" rx="1.5"/><rect x="7" y="6" width="3" height="3" rx="0.5"/><rect x="14" y="6" width="3" height="3" rx="0.5"/></svg>
+<h3><span class="sk">Diely a stavby</span><span class="en">Parts and builds</span></h3>
+<p><span class="sk">Zoznam dielikov setu podľa farieb, kontrola úplnosti pri rozobratom alebo kúpenom použitom sete (štítok „chýbajú 3“ a zoznam na stiahnutie) a alternatívne stavby, ktoré z dielikov setu postavíš.</span><span class="en">A set’s parts by colour, a completeness check for a dismantled or second-hand set (a “3 missing” tag and a downloadable list) and alternate builds you can make from the set’s parts.</span></p>
+</article>
+<article class="card">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg>
+<h3><span class="sk">Ceny pod kontrolou</span><span class="en">Prices under control</span></h3>
+<p><span class="sk">Obnova cien sa opýta, koľko ich obnoviť, a ukáže zvyšok denného limitu. Najprv sety bez ceny, potom najstaršie. Fotku setu zväčšíš jedným klikom a prihlásenie si appka na tvojom počítači zapamätá, keď chceš.</span><span class="en">The price refresh asks how many to refresh and shows what is left of the daily limit. Sets without a price go first, then the oldest. A set photo enlarges with one click, and the app remembers your sign-in on your computer if you want.</span></p>
+</article>
 </div>
 </div>
 </section>
@@ -303,10 +318,11 @@ Moje kocky
 </div>
 <div class="table">
 <div class="row head"><span class="sk">Služba</span><span class="en">Service</span><span class="sk">Čo doplní</span><span class="en">What it adds</span><span class="sk">Kľúč</span><span class="en">Key</span></div>
-<div class="row"><a href="https://rebrickable.com">Rebrickable</a><span class="what"><span class="sk">Katalóg setov a minifigúrok, názvy, obrázky, série, dieliky</span><span class="en">Set and minifigure catalogue, names, images, themes, parts</span></span><span class="key"><span class="sk">zadarmo, v nastaveniach účtu</span><span class="en">free, in your account settings</span></span></div>
+<div class="row"><a href="https://rebrickable.com">Rebrickable</a><span class="what"><span class="sk">Katalóg setov a minifigúrok, názvy, obrázky, série, zoznam dielikov, alternatívne stavby</span><span class="en">Set and minifigure catalogue, names, images, themes, parts lists, alternate builds</span></span><span class="key"><span class="sk">zadarmo, v nastaveniach účtu</span><span class="en">free, in your account settings</span></span></div>
 <div class="row"><a href="https://brickset.com">Brickset</a><span class="what"><span class="sk">Pôvodné ceny, čiarové kódy, popisy, hodnotenia, vlny sérií, ďalšie fotky</span><span class="en">Retail prices, barcodes, descriptions, ratings, theme waves, extra photos</span></span><span class="key"><span class="sk">zadarmo, na požiadanie</span><span class="en">free, on request</span></span></div>
 <div class="row"><a href="https://www.brickeconomy.com">BrickEconomy</a><span class="what"><span class="sk">Trhové ceny nových aj použitých kusov, história, odhad hodnoty</span><span class="en">Market prices for new and used items, history, value forecast</span></span><span class="key"><span class="sk">platené Premium, osobná licencia</span><span class="en">paid Premium, personal licence</span></span></div>
 <div class="row"><a href="https://www.upcitemdb.com">UPCitemdb</a><span class="what"><span class="sk">Záložné hľadanie setu podľa čiarového kódu</span><span class="en">Fallback lookup of a set by barcode</span></span><span class="key"><span class="sk">bez kľúča, zapína sa prepínačom</span><span class="en">no key, switched on in settings</span></span></div>
+<div class="row"><a href="https://www.ecb.europa.eu">ECB</a><span class="what"><span class="sk">Výmenné kurzy eura na zobrazenie súm v inej mene a kúpu v cudzej mene</span><span class="en">Euro exchange rates for showing amounts in another currency and buying in a foreign one</span></span><span class="key"><span class="sk">bez kľúča, len keď zvolíš inú menu</span><span class="en">no key, only when you pick another currency</span></span></div>
 <div class="row"><a href="https://ec.europa.eu/eurostat">Eurostat</a><span class="what"><span class="sk">Index inflácie (HICP Slovensko) na prepočet do dnešných peňazí</span><span class="en">Inflation index (HICP Slovakia) for today’s-money figures</span></span><span class="key"><span class="sk">bez kľúča, zapína sa prepínačom</span><span class="en">no key, switched on in settings</span></span></div>
 </div>
 </div>
@@ -316,7 +332,7 @@ Moje kocky
 <div class="wrap">
 <div class="section-head">
 <h2><span class="sk">Licencie a podmienky, ktoré appka dodržiava</span><span class="en">Licences and terms the app follows</span></h2>
-<p><span class="sk">Ku každej licencii a podmienkam je tu napísané, ako ich appka dodržiava. Stav k septembru 2026; nie je to právna rada. Texty licencií všetkých knižníc, z ktorých je program poskladaný, pribalí inštalátor (THIRD-PARTY-NOTICES.txt) a sú aj <a href="../third-party-notices.txt">tu</a>.</span><span class="en">For each licence and set of terms, here is how the app complies. As of September 2026; this is not legal advice. The licence texts of every library the program is built from ship with the installer (THIRD-PARTY-NOTICES.txt) and are also <a href="../third-party-notices.txt">here</a>.</span></p>
+<p><span class="sk">Ku každej licencii a podmienkam je tu napísané, ako ich appka dodržiava. Stav k októbru 2026; nie je to právna rada. Texty licencií všetkých knižníc, z ktorých je program poskladaný, pribalí inštalátor (THIRD-PARTY-NOTICES.txt) a sú aj <a href="../third-party-notices.txt">tu</a>.</span><span class="en">For each licence and set of terms, here is how the app complies. As of October 2026; this is not legal advice. The licence texts of every library the program is built from ship with the installer (THIRD-PARTY-NOTICES.txt) and are also <a href="../third-party-notices.txt">here</a>.</span></p>
 </div>
 <div class="grid g2">
 <article class="card">
@@ -340,6 +356,10 @@ Moje kocky
 <p><span class="sk">Appka neobsahuje žiadne ceny BrickEconomy. Vidíš len tie, ktoré stiahol tvoj kľúč Premium, a nikam ďalej sa nešíria. Ceny sú odhady BrickEconomy, nie investičné poradenstvo.</span><span class="en">The app ships no BrickEconomy prices. You only see those your Premium key fetched, and they go nowhere else. Prices are BrickEconomy estimates, not investment advice.</span></p>
 </article>
 <article class="card">
+<div class="card-head"><h3><span class="sk">Európska centrálna banka</span><span class="en">European Central Bank</span></h3><span class="badge"><span class="sk">so zdrojom</span><span class="en">with source</span></span></div>
+<p><span class="sk">Zdroj: ECB, referenčné výmenné kurzy eura. Sú len informatívne a appka ich stiahne, až keď zvolíš inú menu než euro alebo zadáš kúpu v cudzej mene; o tebe nič neodchádza.</span><span class="en">Source: ECB, euro foreign exchange reference rates. They are for information only, and the app downloads them only once you pick a currency other than the euro or enter a purchase in a foreign currency; nothing about you is sent.</span></p>
+</article>
+<article class="card">
 <div class="card-head"><h3>Eurostat</h3><span class="badge">CC BY 4.0</span></div>
 <p><span class="sk">Zdroj: Eurostat, súbor prc_hicp_minr. Prepočet do dnešných peňazí je úprava dát, za ktorú Eurostat nezodpovedá.</span><span class="en">Source: Eurostat, dataset prc_hicp_minr. The today’s-money conversion is a modification of the data for which Eurostat is not responsible.</span></p>
 </article>
@@ -347,7 +367,7 @@ Moje kocky
 <div class="card-head"><h3>UPCitemdb</h3><span class="badge"><span class="sk">bezplatné API</span><span class="en">free API</span></span></div>
 <p><span class="sk">Predvolene vypnuté. Po zapnutí sa pýta len na čiarový kód. Kód, ktorý sa nenašiel, sa 30 dní nehľadá znova (kým sám nestlačíš Skúsiť znova), nájdený sa už nehľadá vôbec.</span><span class="en">Off by default. Once enabled, it only asks about a barcode. A code that was not found is not looked up again for 30 days (unless you press Try again yourself); a code that was found is never looked up again.</span></p>
 </article>
-<article class="card">
+<article class="card card-wide">
 <div class="card-head"><h3><span class="sk">Súkromie (GDPR)</span><span class="en">Privacy (GDPR)</span></h3><span class="badge"><span class="sk">len na tvojom PC</span><span class="en">your PC only</span></span></div>
 <p><span class="sk">Appka nemá server ani prevádzkovateľa, autor k tvojim údajom nemá prístup. Export všetkých údajov aj zmazanie účtu sú v Nastaveniach; zálohy pri aktualizácii ostávajú na tvojom PC, kým sa neprestriedajú, aj s údajmi zmazaného účtu. Táto stránka nepoužíva cookies, analytiku ani písma či skripty z cudzích serverov; v prehliadači si pamätá len tvoju voľbu svetlého či tmavého režimu.</span><span class="en">The app has no server and no operator; its author has no access to your data. Exporting all your data and deleting your account are in Settings; update backups stay on your PC until they rotate out, including data of a deleted account. This site uses no cookies, no analytics and no fonts or scripts from third-party servers; your browser only remembers your light or dark mode choice.</span></p>
 </article>
@@ -433,7 +453,7 @@ Moje kocky
 <a href="https://github.com/jakubmatisak/moje-kocky-webapp"><span class="sk">Kód webovej verzie</span><span class="en">Web version source</span></a>
 <a href="https://github.com/jakubmatisak/moje-kocky-desktop/blob/main/LICENSE"><span class="sk">Licencia MIT</span><span class="en">MIT licence</span></a>
 </div>
-<p><span class="sk">LEGO® je ochranná známka skupiny spoločností LEGO Group, ktorá túto stránku nesponzoruje, neautorizuje ani neschvaľuje.</span> LEGO® is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site. <span class="sk">Moje kocky nie sú spojené s Rebrickable, Brickset, BrickEconomy, UPCitemdb ani Eurostatom. Obrázky setov na snímkach sú chránené autorským právom LEGO Group.</span><span class="en">Moje kocky is not affiliated with Rebrickable, Brickset, BrickEconomy, UPCitemdb or Eurostat. Set images in the screenshots are copyright of the LEGO Group.</span></p>
+<p><span class="sk">LEGO® je ochranná známka skupiny spoločností LEGO Group, ktorá túto stránku nesponzoruje, neautorizuje ani neschvaľuje.</span> LEGO® is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site. <span class="sk">Moje kocky nie sú spojené s Rebrickable, Brickset, BrickEconomy, UPCitemdb, Eurostatom ani Európskou centrálnou bankou. Obrázky setov na snímkach sú chránené autorským právom LEGO Group.</span><span class="en">Moje kocky is not affiliated with Rebrickable, Brickset, BrickEconomy, UPCitemdb, Eurostat or the European Central Bank. Set images in the screenshots are copyright of the LEGO Group.</span></p>
 <p><span class="sk">© 2026 jakubmatisak · Nekomerčný projekt fanúšika · Bez cookies a analytiky · Písmo Roboto (OFL-1.1) je súčasťou stránky · Stránka vznikla s pomocou AI</span><span class="en">© 2026 jakubmatisak · Non-commercial fan project · No cookies or analytics · The Roboto font (OFL-1.1) is served from this site · This site was made with the help of AI</span></p>
 </div>
 </footer>
