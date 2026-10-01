@@ -1,7 +1,8 @@
-// Prepínač jazyka. Bez skriptu je stránka po slovensky; voľba jazyka sa
-// neukladá, ide len do adresy ako ?lang=en. Koreňová adresa je slovenská
-// verzia a ?lang=en anglická (canonical a hreflang v <head>), preto roboty
-// vyhľadávačov dostanú bez parametra vždy slovenčinu, nie jazyk prehliadača.
+// Prepínač jazyka. Každý jazyk má vlastnú adresu: koreň je slovenská
+// stránka, en/ anglická (vyrába ju scripts/build-en.mjs, s anglickým
+// <head> pre roboty a náhľady odkazov). Tlačidlo SK/EN prejde na druhú
+// stránku, staré odkazy ?lang=en presmeruje na en/. Na koreni bez voľby
+// dostane prehliadač mimo slovenčiny a češtiny angličtinu priamo na mieste.
 (function () {
   var TEXT = {
     sk: {
@@ -16,29 +17,31 @@
     }
   };
 
+  var page = document.documentElement.dataset.page === 'en' ? 'en' : 'sk';
+  var homes = { sk: page === 'en' ? '../' : './', en: page === 'en' ? './' : 'en/' };
+
+  function openLanguage (lang) {
+    location.href = homes[lang] + location.hash;
+  }
+
   function initial () {
     var asked = new URLSearchParams(location.search).get('lang');
-    if (asked === 'sk' || asked === 'en') return asked;
+    if ((asked === 'sk' || asked === 'en') && asked !== page) {
+      location.replace(homes[asked] + location.hash);
+      return page;
+    }
+    if (page === 'en' || asked === 'sk') return page;
     if (/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)) return 'sk';
     var browser = (navigator.languages && navigator.languages[0]) || navigator.language || 'sk';
     return /^(sk|cs)\b/i.test(browser) ? 'sk' : 'en';
   }
 
-  function apply (lang, remember) {
+  function apply (lang) {
     var root = document.documentElement;
     root.lang = lang;
     document.title = TEXT[lang].title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', TEXT[lang].description);
-    // Anglická verzia má vlastnú adresu, nech ju vyhľadávač nepovažuje za kópiu.
-    var canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      var base = canonical.href.split('?')[0];
-      var own = lang === 'en' ? base + '?lang=en' : base;
-      canonical.href = own;
-      var ogUrl = document.querySelector('meta[property="og:url"]');
-      if (ogUrl) ogUrl.setAttribute('content', own);
-    }
     [['og:title', 'title'], ['og:description', 'description'], ['og:locale', 'locale']].forEach(function (pair) {
       var tag = document.querySelector('meta[property="' + pair[0] + '"]');
       if (tag) tag.setAttribute('content', TEXT[lang][pair[1]]);
@@ -50,16 +53,13 @@
     document.querySelectorAll('.lang button').forEach(function (button) {
       button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
     });
-    if (remember) {
-      var url = new URL(location.href);
-      if (lang === 'sk') url.searchParams.delete('lang');
-      else url.searchParams.set('lang', lang);
-      history.replaceState(null, '', url);
-    }
   }
 
   document.querySelectorAll('.lang button').forEach(function (button) {
-    button.addEventListener('click', function () { apply(button.dataset.lang, true); });
+    button.addEventListener('click', function () {
+      if (button.dataset.lang !== page) openLanguage(button.dataset.lang);
+      else apply(page);
+    });
   });
 
   // Ponuka na telefóne sa po výbere sekcie zavrie.
@@ -70,7 +70,7 @@
     });
   }
 
-  apply(initial(), false);
+  apply(initial());
 
   // Svetlý a tmavý režim: kým si návštevník nevyberie, platí nastavenie systému.
   // Voľba ide do localStorage (jediné, čo si stránka pamätá), v súkromnom okne nie.

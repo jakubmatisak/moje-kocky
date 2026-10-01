@@ -16,8 +16,10 @@ Je to jeden statický súbor HTML bez frameworku a bez zostavovania:
 
 ```
 index.html                 obsah, slovensky aj anglicky (.sk / .en), SEO v <head>
+en/index.html              anglická stránka, vyrobená z index.html (scripts/build-en.mjs)
+scripts/build-en.mjs       vyrobí en/index.html: anglický <head>, cesty o priečinok vyššie
 assets/style.css           farby a rozloženie ako v appke, tmavý režim podľa systému alebo voľby
-assets/site.js             jazyk (?lang=en), svetlý/tmavý režim (localStorage „theme“), galéria
+assets/site.js             jazyk (SK = koreň, EN = en/), svetlý/tmavý režim (localStorage „theme“), galéria
 assets/fonts/              Roboto (OFL-1.1, pozri OFL.txt), uložené tu, nie z Google Fonts
 assets/img/                snímky desktopu s ukážkovou zbierkou (vymyslené ručné ceny),
                            *-male = náhľady, og.jpg = obrázok na zdieľanie 1200×630
@@ -25,6 +27,7 @@ sitemap.xml                mapa stránky pre vyhľadávače (obe jazykové verzi
 third-party-notices.txt    licencie knižníc v inštalátore (z packaging/notices.py desktopu)
 ```
 
+Po každej zmene `index.html` spusti `node scripts/build-en.mjs` a commitni aj `en/index.html`.
 Náhľad: `python -m http.server` v tomto priečinku. Zverejnenie: GitHub Pages z vetvy
 `main`, priečinok `/ (root)`.
 
@@ -45,11 +48,15 @@ Náhľad: `python -m http.server` v tomto priečinku. Zverejnenie: GitHub Pages 
 
 ## Vyhľadávače (SEO)
 
-- `<head>` má kanonickú adresu, `hreflang` (koreň = slovensky, `?lang=en` = anglicky),
-  Open Graph a Twitter kartu s obrázkom `assets/img/og.jpg` a štruktúrované dáta
-  `SoftwareApplication` (zadarmo, Windows) v JSON-LD.
-- `site.js` pri angličtine prepne canonical, `og:url`, názov a popis. Roboty bez `?lang`
-  dostanú vždy slovenčinu, nie jazyk prehliadača, aby sa verzie nemiešali.
+- Každý jazyk má vlastnú adresu: koreň je slovensky, `en/` anglicky. Roboty a četovacie
+  appky (Messenger, WhatsApp) JavaScript nespúšťajú, preto má anglická stránka anglický
+  titulok, popis, Open Graph aj popisy obrázkov priamo v súbore. Staré odkazy `?lang=en`
+  presmeruje `site.js` na `en/`.
+- `<head>` má kanonickú adresu, `hreflang`, Open Graph a Twitter kartu s obrázkom
+  `assets/img/og.jpg` (aj typ a popis obrázka) a štruktúrované dáta `SoftwareApplication`
+  (zadarmo, Windows, verzia, veľkosť) v JSON-LD.
+- Pri novom vydaní zmeň v `index.html` odkaz na stiahnutie, text „Verzia …“, `softwareVersion`
+  a `dateModified` a spusti `node scripts/build-en.mjs`.
 - `sitemap.xml` obsahuje obe verzie. `robots.txt` na podstránke projektu vyhľadávače
   nečítajú, preto tu nie je; mapu stránky treba odoslať v Google Search Console.
 - Pri zmene obsahu uprav `lastmod` v `sitemap.xml` a popisy v `<head>` aj v `site.js` (`TEXT`).
@@ -82,8 +89,10 @@ A single static HTML page with no framework and no build step:
 
 ```
 index.html                 content in Slovak and English (.sk / .en), SEO in <head>
+en/index.html              the English page, generated from index.html (scripts/build-en.mjs)
+scripts/build-en.mjs       generates en/index.html: English <head>, paths one folder up
 assets/style.css           colours and layout matching the app, dark mode from the system or the toggle
-assets/site.js             language (?lang=en), light/dark mode (localStorage “theme”), gallery
+assets/site.js             language (SK = root, EN = en/), light/dark mode (localStorage “theme”), gallery
 assets/fonts/              Roboto (OFL-1.1, see OFL.txt), served from here, not from Google Fonts
 assets/img/                desktop screenshots of a sample collection (made-up manual prices),
                            *-male = thumbnails, og.jpg = 1200×630 sharing image
@@ -112,12 +121,15 @@ branch, folder `/ (root)`.
 
 ## Search engines (SEO)
 
-- `<head>` has a canonical URL, `hreflang` (root = Slovak, `?lang=en` = English), Open Graph
-  and a Twitter card with `assets/img/og.jpg`, and `SoftwareApplication` structured data
-  (free, Windows) as JSON-LD.
-- In English, `site.js` switches the canonical URL, `og:url`, title and description. Crawlers
-  without `?lang` always get Slovak rather than their browser language, so the two versions
-  do not mix.
+- Each language has its own URL: the root is Slovak, `en/` is English. Crawlers and chat apps
+  (Messenger, WhatsApp) do not run JavaScript, so the English page carries its English title,
+  description, Open Graph and image descriptions in the file itself. `site.js` redirects old
+  `?lang=en` links to `en/`.
+- `<head>` has a canonical URL, `hreflang`, Open Graph and a Twitter card with
+  `assets/img/og.jpg` (including its type and description), and `SoftwareApplication`
+  structured data (free, Windows, version, size) as JSON-LD.
+- For a new release, change the download link, the "Verzia …" text, `softwareVersion` and
+  `dateModified` in `index.html`, then run `node scripts/build-en.mjs`.
 - `sitemap.xml` lists both versions. Search engines ignore `robots.txt` on a project subpath,
   so there is none; submit the sitemap in Google Search Console instead.
 - When the content changes, update `lastmod` in `sitemap.xml` and the descriptions in `<head>`
