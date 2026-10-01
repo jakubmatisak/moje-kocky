@@ -97,13 +97,15 @@
   // Galéria. Pás na stránke sa posúva do strany (šípky ho posunú o obrázok),
   // klik otvorí prehliadač cez celú obrazovku: snímky vedľa seba, posúva sa
   // prstom, touchpadom, tlačidlami aj klávesmi. Bez skriptu odkaz otvorí obrázok.
-  var strip = document.querySelector('.strip');
   var thumbs = Array.prototype.slice.call(document.querySelectorAll('.strip .thumb'));
   var viewer = document.querySelector('.viewer');
 
-  if (strip) {
-    var back = document.querySelector('.strip-prev');
-    var on = document.querySelector('.strip-next');
+  // Pásy sú dva (funkcie a galéria), každý má vlastné šípky.
+  Array.prototype.forEach.call(document.querySelectorAll('.carousel'), function (carousel) {
+    var strip = carousel.querySelector('.strip');
+    var back = carousel.querySelector('.strip-prev');
+    var on = carousel.querySelector('.strip-next');
+    if (!strip || !back || !on) return;
     var step = function () { return strip.querySelector('li').getBoundingClientRect().width + 20; };
     var edges = function () {
       back.disabled = strip.scrollLeft < 8;
@@ -114,7 +116,7 @@
     strip.addEventListener('scroll', edges, { passive: true });
     window.addEventListener('resize', edges);
     edges();
-  }
+  });
 
   if (viewer && typeof viewer.showModal === 'function' && thumbs.length) {
     var track = viewer.querySelector('.track');
