@@ -18,7 +18,7 @@ Je to jeden statický súbor HTML bez frameworku a bez zostavovania:
 index.html                 obsah, slovensky aj anglicky (.sk / .en), SEO v <head>
 en/index.html              anglická stránka, vyrobená z index.html (scripts/build-en.mjs)
 scripts/build-en.mjs       vyrobí en/index.html: anglický <head>, cesty o priečinok vyššie
-assets/style.css           farby a rozloženie ako v appke, tmavý režim podľa systému alebo voľby
+assets/style.css           farby a rozloženie ako v programe, tmavý režim podľa systému alebo voľby
 assets/site.js             jazyk (SK = koreň, EN = en/), svetlý/tmavý režim (localStorage „theme“), galéria
 assets/fonts/              Roboto (OFL-1.1, pozri OFL.txt), uložené tu, nie z Google Fonts
 assets/img/                snímky desktopu s ukážkovou zbierkou (vymyslené ručné ceny),
@@ -49,7 +49,7 @@ Náhľad: `python -m http.server` v tomto priečinku. Zverejnenie: GitHub Pages 
 ## Vyhľadávače (SEO)
 
 - Každý jazyk má vlastnú adresu: koreň je slovensky, `en/` anglicky. Roboty a četovacie
-  appky (Messenger, WhatsApp) JavaScript nespúšťajú, preto má anglická stránka anglický
+  aplikácie (Messenger, WhatsApp) JavaScript nespúšťajú, preto má anglická stránka anglický
   titulok, popis, Open Graph aj popisy obrázkov priamo v súbore. Staré odkazy `?lang=en`
   presmeruje `site.js` na `en/`.
 - `<head>` má kanonickú adresu, `hreflang`, Open Graph a Twitter kartu s obrázkom
